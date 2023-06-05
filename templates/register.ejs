@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Register User</title>
+  </head>
+  <body>
+    <div class="h-screen flex justify-center items-center">
+      <div class="border p-2">
+        <form action="/users/register" method="post">
+          <h2 class="font-semibold text-center">Register</h2>
+          <div class="flex justify-between gap-2 items-center mt-2">
+            <label for="username"> Username</label>
+            <input
+              type="name"
+              name="username"
+              id="name"
+              class="border border-slate-500 rounded-md"
+              placeholder="Enter Username"
+            />
+          </div>
+          <div class="flex justify-between gap-2 items-center mt-2">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="border border-slate-500 rounded-md"
+              placeholder="example@mail.com"
+            />
+          </div>
+          <div class="flex justify-between gap-2 items-center mt-2">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="border border-slate-500 rounded-md"
+              placeholder="Enter Password"
+            />
+          </div>
+          <button
+            type="submit"
+            class="mt-2 bg-indigo-500 p-2 text-white rounded-lg"
+          >
+            Register
+          </button>
+        </form>
+        <p class="mt-4">
+          Already have an account?
+          <a class="underline" href="/users/login">Login</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
