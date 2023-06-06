@@ -21,4 +21,13 @@ export default fp(async (fastify, opts) => {
       reply.redirect("/users/login");
     }
   };
+
+  fastify.authenticateUser = async function (req, reply) {
+    try {
+      const user = await req.session.get("user");
+      if (user) reply.redirect("/blogs");
+    } catch (err) {
+      reply.redirect("/users/login");
+    }
+  };
 });
