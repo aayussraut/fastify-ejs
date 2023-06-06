@@ -5,9 +5,11 @@ export const signUpHandler = async (req, reply) => {
       email: req.body.email,
       password: req.body.password,
     });
-    reply.send(user);
+    reply.view("/templates/register", { message: "Something went wrong" });
   } catch (err) {
-    console.log(err);
+    await reply.view("/templates/register.ejs", {
+      message: err.message || "Something went wrong",
+    });
   }
 };
 
@@ -17,11 +19,13 @@ export const signInHandler = async (req, reply) => {
       where: { username: req.body.username },
     });
     if (user.password === req.body.password) {
-      reply.code(200).send({ msg: "Logged in successfully" });
+      reply.redirect("/blogs");
     } else {
-      reply.code(401).send({ msg: "Incorrect password" });
+      res.render("login", { message: "Invalid username or password" });
     }
   } catch (err) {
-    console.log(err);
+    await reply.view("/templates/login.ejs", {
+      message: "Invalid username or password",
+    });
   }
 };

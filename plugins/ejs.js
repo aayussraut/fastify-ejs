@@ -7,5 +7,7 @@ export default fp(async (fastify, opts) => {
     engine: {
       ejs: ejs,
     },
+    layout: "/templates/layout.ejs",
+    includeViewExtension: true,
   });
 });
