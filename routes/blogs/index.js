@@ -19,6 +19,7 @@ export default async function (fastify, opts) {
         },
       },
     },
+    preHandler: fastify.authenticate,
     handler: getBlogsHandler,
   };
 
@@ -33,6 +34,7 @@ export default async function (fastify, opts) {
         },
       },
     },
+    preHandler: fastify.authenticate,
     handler: postBlogsHandler,
   };
 
@@ -46,6 +48,7 @@ export default async function (fastify, opts) {
         },
       },
     },
+    preHandler: fastify.authenticate,
     handler: deleteBlogsHandler,
   };
 

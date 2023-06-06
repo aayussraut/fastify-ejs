@@ -20,6 +20,7 @@ export const signInHandler = async (req, reply) => {
     });
     if (user.password === req.body.password) {
       reply.redirect("/blogs");
+      req.session.set("user", user.username);
     } else {
       res.render("login", { message: "Invalid username or password" });
     }
