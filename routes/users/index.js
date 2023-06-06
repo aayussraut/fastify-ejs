@@ -32,11 +32,15 @@ export default async function (fastify, opts) {
   };
 
   fastify.get("/login", async function (request, reply) {
-    await reply.view("/templates/login.ejs");
+    await reply.view("/templates/login.ejs", {
+      message: "",
+    });
   });
 
   fastify.get("/register", async function (request, reply) {
-    await reply.view("/templates/register.ejs");
+    await reply.view("/templates/register.ejs", {
+      message: "",
+    });
   });
 
   fastify.post("/login", signInOptns);
