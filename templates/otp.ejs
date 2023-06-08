@@ -1,0 +1,11 @@
+<div class="h-screen flex justify-center items-center">
+    <div class="w-1/2 flex flex-col p-2 px-5 items-center shadow-xl py-5">
+        <%- include ('partials/message')%>
+            <h1 class="text-xl font-semibold mb-2">Verify OTP</h1>
+            <form class="text-center " method="post" action="/otp/send">
+                <input type="text" name="otp" placeholder="Enter OTP"
+                    class="border border-black rounded-lg p-2 px-4" /><br />
+                <button type="submit" class="mt-2 bg-indigo-500 p-2 text-white rounded-lg text-center">Verify</button>
+            </form>
+    </div>
+</div>

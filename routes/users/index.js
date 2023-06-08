@@ -54,4 +54,9 @@ export default async function (fastify, opts) {
   fastify.post("/login", signInOptns);
 
   fastify.post("/register", signUpOptns);
+
+  fastify.get("/logout", async function (request, reply) {
+    request.session.delete();
+    await reply.redirect("/users/login");
+  });
 }

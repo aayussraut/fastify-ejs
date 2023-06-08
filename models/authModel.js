@@ -21,7 +21,11 @@ export default fp(async (fastify, opts) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    otp: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   });
-  await user.sync();
+  await user.sync({ alter: true });
   fastify.decorate("user", user);
 });

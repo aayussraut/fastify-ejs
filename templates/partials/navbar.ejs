@@ -1,0 +1,18 @@
+<nav class="w-full bg-slate-900 text-white py-4 px-3">
+    <div class="flex justify-between">
+        <p>Welcome to my blog</p>
+        <button class="bg-red-600 text-white p-2" onclick="handleLogout()">
+            Logout
+        </button>
+    </div>
+</nav>
+
+<script>
+    function handleLogout() {
+        fetch('/users/logout', {
+            method: 'POST'
+        }).then((res) => {
+            window.location.href = '/users/login'
+        })
+    }
+</script>
